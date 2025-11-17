@@ -106,84 +106,7 @@
     <section class="codedemo" id="codedemo">
       <div class="row">
         <h2>Code Demo</h2>
-        <div class="snippets">
-          <!-- Snippet Item -->
-          <div class="snippet">
-            <div class="snippet__code">
-              <pre><code class="language-csharp">
-                /// <summary>
-                /// Represents the physics-based  AimIndicator.
-                /// </summary>
-                public override void Update(GameTime gameTime)
-                {
-                    base.Update(gameTime);
-                    if (!IsAiming) return;
-
-                    _aimTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    IsVisible = true;
-
-                    var dir = new Vector2(MathF.Cos(_rotation), MathF.Sin(_rotation));
-                    var vel = dir * InitialSpeed;
-                    var dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                    for (int i = 0; i < DotCount && i < _aimDots.Count; i++)
-                    {
-                        vel += Gravity * dt;
-                        _aimDots[i].Place(position + vel * dt * i * 2);
-                    }
-                }
-
-                /// <summary>
-                /// Represents a physics-based arrow projectile.
-                /// </summary>
-                public override void Update(GameTime gameTime)
-                {
-                    var dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    // apply gravity
-                    _velocity += _gravity * dt;
-                    // update position
-                    position += _velocity * dt;
-                    // update rotation to face movement direction
-                    rotation = MathF.Atan2(_velocity.Y, _velocity.X);
-                }
-
-                /// <summary>
-                /// Shoots an arrow following the current trajectory.
-                /// </summary>
-                public Arrow Shoot()
-                {
-                    // calculate initial velocity and direction
-                    var dir = new Vector2(MathF.Cos(_rotation), MathF.Sin(_rotation));
-                    var initialVelocity = dir * InitialSpeed;
         
-                    // create arrow at indicator position
-                    var arrow = new Arrow(position, initialVelocity, Gravity);
-                    StopAiming();
-                    IsVisible = false;
-                    return arrow;
-                }
-              </code></pre>
-            </div>
-            <div class="snippet__demo">
-              <img src="./images/FactionFighter_Shooting.gif"" alt="Aim and shoot demo">
-            </div>
-          </div>
-    
-          <!-- Snippet Item -->
-          <div class="snippet">
-            <div class="snippet__code">
-              <pre><code class="language-csharp">
-                // Rotate an object continuously
-                void Update() {
-                  transform.Rotate(Vector3.up * 20 * Time.deltaTime);
-                }
-              </code></pre>
-            </div>
-            <div class="snippet__demo">
-              <img src="./images/FactionFighter_Shooting.gif" alt="Rotating object demo">
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     
@@ -220,9 +143,6 @@
             </p>
             <p><strong>Technical Skills:</strong> C#, Python, JavaScript, Unity, Godot, SQL</p>
             <a href="./images/GameDev-CV-2024_EN.pdf" class="btn">My CV</a>
-          </div>
-          <div class="about__photo-container">
-            <img class="about__photo" src="./images/profile.jpg" alt="Mark Schrandt" />
           </div>
         </div>
       </div>
